@@ -68,14 +68,22 @@ describe Zombie do
 		zombie = Zombie.new
 		expect(zombie).to respond_to(:hungry?) # pass if obj.respond_to?(:hungry)
 		expect(subject).to respond_to(:hungry?) # 
-		expect respond_to(:hungry)
+		expect respond_to(:hungry?)
 		#3種寫法， subject = zombie = Zombie.new
 		#也可省略subject
 	end
 end
 
+# 省略 it 的 string
+describe Zombie do
+	it {expect respond_to(:hungry?)}
+end
 
 
+describe Zombie do
+	zombie = Zombie.new(:name => 'Ash')
+	#it { expect(zombie.name).to eq 'Ash'}
+end
 
 
 
