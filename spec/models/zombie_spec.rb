@@ -63,6 +63,16 @@ describe Zombie do
 end
 
 
+describe Zombie do
+	it "test respond_to" do
+		zombie = Zombie.new
+		expect(zombie).to respond_to(:hungry?) # pass if obj.respond_to?(:foo)
+		
+	end
+	
+end
+
+
 
 
 
