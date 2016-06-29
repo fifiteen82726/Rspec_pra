@@ -1,19 +1,19 @@
 class Zombie < ActiveRecord::Base
-	#attr_accessor :name
-
-	
 	validates :name, presence: true
 	has_many :tweets
 
+	# attr_accessor :h
 
-	# def initialize
-	# 	@name = 'Ash'
-	# end
+	after_initialize do |z|
+    	@h = true
+  	end
 
 
 	def hungry?
-    	true
+    	@h
 	end
 
-
+	def eat(brains)
+		@h = false
+	end
 end

@@ -87,5 +87,26 @@ end
 
 
 
+#practice refatory 
+
+describe Zombie do
+	it "has no name" do	
+		@zombie = Zombie.create
+		#@zombie.name.should be_nil
+		expect(@zombie.name).to eq  nil
+	end
+
+	it 'should not be hungry after eating' do 
+		@zombie = Zombie.create 
+		expect(@zombie).to be_invalid
+		expect(@zombie).to be_hungry
+    	@zombie.eat("eat")
+    	expect(@zombie.hungry?).to be_falsey
+    	# true => truthy , flase => falsey
+	end
+end
+
+
+
 
 
