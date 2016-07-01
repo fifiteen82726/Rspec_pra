@@ -89,6 +89,8 @@ end
 
 #practice refatory 
 
+#before
+
 describe Zombie do
 	it "has no name" do	
 		@zombie = Zombie.create
@@ -102,11 +104,36 @@ describe Zombie do
 		expect(@zombie).to be_hungry
     	@zombie.eat("eat")
     	expect(@zombie.hungry?).to be_falsey
-    	# true => truthy , flase => falsey
+    	# true => truthy , flase => falsey 
 	end
 end
 
 
+#after 
 
+describe Zombie do
+	
+	# refatory 	@zombie = Zombie.create
+	let(:zombie){Zombie.create}
+	subject { zombie }
+
+
+	#省略一次
+	it "has no name_refactory" do
+		# subject.name.should be_nil
+		expect(subject.name).to be_nil
+	end
+	#在省略一次
+	it {expect(subject.name).to be_nil}
+
+
+	#利用 expect, change 和 from ,to
+
+	it "should not be hungry after eating_refactor" do
+		expect {zombie.eat(:brains)}.to change {zombie.hungry?}.from(true).to(false)
+	end
+
+	
+end
 
 
