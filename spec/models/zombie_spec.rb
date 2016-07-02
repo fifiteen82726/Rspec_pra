@@ -9,6 +9,7 @@ it 'is invalid without a name' do
 end
 
 
+
 describe Zombie do
 it "Zombie has a name call 'Ash Clone #'" do
 	zombie = Zombie.new(:name => 'Ash Clone 1')
@@ -135,5 +136,62 @@ describe Zombie do
 
 	
 end
+
+
+
+
+
+
+
+# RailsZombie vedio-4 beggin
+
+
+describe Zombie do
+
+let(:zombie){Zombie.new}
+
+#先執行一下這個的意思
+before {zombie.hungry!}
+
+it "is hungry" do
+		expect(zombie).to be_hungry
+		
+end
+
+#rspec --tag ~slow 就不會執行 有 slow: true tag 的 context
+context 'with a vaggie oreference' , slow: true do
+	# context 下的 before action
+	before {zombie.vegetarian = true}
+
+	it "description" do
+		expect(zombie).to be_hungry
+	end
+
+end
+
+
+# rspec --tag vagan  就只會測試有 vagan: true tag的 context
+context 'with a vaggie oreference2' , vagan: true do
+	# context 下的 before action
+	before {zombie.vegetarian = true}
+
+	it "description2" do
+		expect(zombie).to be_hungry
+	end
+	
+end
+
+
+
+end
+
+
+
+
+
+
+
+
+
 
 

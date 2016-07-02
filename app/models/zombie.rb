@@ -1,6 +1,7 @@
 class Zombie < ActiveRecord::Base
 	validates :name, presence: true
 	has_many :tweets
+	
 
 	# attr_accessor :h
 
@@ -11,6 +12,11 @@ class Zombie < ActiveRecord::Base
 
 	def hungry?
     	@h
+	end
+
+
+	def hungry!
+		@h = true
 	end
 
 	def eat(brains)
